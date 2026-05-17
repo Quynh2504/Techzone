@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hỗ Trợ Khách Hàng | TECHZONE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary-color: #4e2ac2;
+            --secondary-color: #ffb300;
+            --dark-color: #222;
+            --light-color: #f9f9f9;
+            --text-color: #333;
+            --text-light: #aaa;
+            --white: #fff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .support-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .support-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-question i {
+            color: var(--secondary-color);
+        }
+        
+        .faq-answer {
+            padding-left: 30px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: rgba(78, 42, 194, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .contact-method i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .tracking-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tracking-form input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+        }
+        
+        .tracking-form button {
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .tracking-form button:hover {
+            background: #3a1d9a;
+        }
+        
+        /* Header styles (giữ nguyên) */
+        header {
+            background: var(--primary-color);
+            color: white;
+        }
+        .pink-section {
+            padding: 10px 0;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 180px;
+        }
+        .logo i {
+            font-size: 28px;
+            color: var(--secondary-color);
+        }
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .logo h1::after {
+            display: none;
+        }
+        .header-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            justify-content: center;
+            min-width: 350px;
+        }
+        .header-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .header-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer styles (giữ nguyên) */
+        footer {
+            background: var(--dark-color);
+            color: var(--text-light);
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            
+            .header-links {
+                flex-wrap: wrap;
+                gap: 15px;
+                min-width: auto;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tracking-form {
+                flex-direction: column;
+            }
+            
+            .tracking-form input {
+                max-width: 100%;
+            }
+            
+            .tracking-form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="pink-section">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-laptop"></i>
+                <h1>TECHZONE</h1>
+            </div>
+            <nav class="header-links">
+                <a href="trangchu.html">TRANG CHỦ</a>
+                <a href="sanpham.html">SẢN PHẨM</a>
+                <a href="tintuc.html">TIN TỨC</a>
+                <a href="lienhe.html">LIÊN HỆ</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <h1>Hỗ Trợ Khách Hàng</h1>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Chúng tôi luôn sẵn sàng hỗ trợ bạn mọi lúc, mọi nơi. Dưới đây là các dịch vụ hỗ trợ khách hàng mà TECHZONE cung cấp.</p>
+    
+    <div class="support-grid">
+        <div class="support-card">
+            <div class="support-icon">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <h2>Trung Tâm Hỗ Trợ</h2>
+            <p>Tìm kiếm giải pháp cho mọi vấn đề bạn gặp phải với sản phẩm và dịch vụ của chúng tôi.</p>
+            <ul style="margin-top: 15px;">
+                <li><i class="fas fa-chevron-right" style="color: var(--secondary-color);"></i> Hướng dẫn sử dụng sản phẩm</li>
+                <li><i class="fas fa-chevron-right" style="color: var(--secondary-color);"></i> Khắc phục sự cố thường gặp</li>
+                <li><i class="fas fa-chevron-right" style="color: var(--secondary-color);"></i> Tài liệu kỹ thuật</li>
+            </ul>
+        </div>
+        
+        <div class="support-card">
+            <div class="support-icon">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h2>Liên Hệ Hỗ Trợ</h2>
+            <p>Đội ngũ hỗ trợ của chúng tôi luôn sẵn sàng giải đáp mọi thắc mắc của bạn.</p>
+            <div class="contact-info">
+                <div class="contact-method">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>1800 588 886</span>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <span>techzone8888@gmail.com</span>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Văn Linh, TP.HCM</span>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-clock"></i>
+                    <span>8:00 - 21:00 hàng ngày</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="support-card">
+            <div class="support-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <h2>Theo Dõi Đơn Hàng</h2>
+            <p>Kiểm tra tình trạng đơn hàng của bạn bất cứ lúc nào.</p>
+            <form class="tracking-form">
+                <input type="text" placeholder="Nhập mã đơn hàng của bạn..." />
+                <button type="submit">Kiểm tra ngay</button>
+            </form>
+            <p style="margin-top: 15px; font-size: 0.9rem;"><i class="fas fa-info-circle" style="color: var(--secondary-color);"></i> Mã đơn hàng được gửi qua email khi bạn đặt hàng thành công.</p>
+        </div>
+    </div>
+    
+    <section id="faq" style="margin-top: 50px;">
+        <h2 style="text-align: center;"><i class="fas fa-question-circle"></i> Câu Hỏi Thường Gặp</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Dưới đây là những câu hỏi phổ biến nhất từ khách hàng của TECHZONE</p>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <i class="fas fa-laptop"></i>
+                Làm thế nào để kiểm tra tình trạng đơn hàng?
+            </div>
+            <div class="faq-answer">
+                Bạn có thể kiểm tra tình trạng đơn hàng bằng cách nhập mã đơn hàng vào ô tìm kiếm phía trên hoặc truy cập <a href="#tracking" style="color: var(--primary-color); font-weight: 600;">trang theo dõi đơn hàng</a>. Mã đơn hàng được gửi qua email khi bạn đặt hàng thành công.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <i class="fas fa-clock"></i>
+                Thời gian giao hàng là bao lâu?
+            </div>
+            <div class="faq-answer">
+                Thời gian giao hàng phụ thuộc vào địa chỉ nhận hàng của bạn:
+                <ul style="margin-top: 10px;">
+                    <li>Nội thành TP.HCM: 1-2 ngày làm việc</li>
+                    <li>Các tỉnh thành khác: 2-5 ngày làm việc</li>
+                    <li>Đối với sản phẩm đặt trước hoặc hàng nhập khẩu: 7-15 ngày làm việc</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <i class="fas fa-shield-alt"></i>
+                Sản phẩm có được bảo hành không?
+            </div>
+            <div class="faq-answer">
+                Tất cả sản phẩm tại TECHZONE đều được bảo hành chính hãng:
+                <ul style="margin-top: 10px;">
+                    <li>Laptop: 12-24 tháng tùy hãng</li>
+                    <li>Phụ kiện: 6-12 tháng</li>
+                    <li>Bảo hành 1 đổi 1 trong 30 ngày đầu tiên nếu phát sinh lỗi từ nhà sản xuất</li>
+                </ul>
+                Chi tiết xem tại <a href="chinhsach.html" style="color: var(--primary-color); font-weight: 600;">chính sách bảo hành</a>.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <i class="fas fa-exchange-alt"></i>
+                Tôi có thể đổi trả sản phẩm không?
+            </div>
+            <div class="faq-answer">
+                TECHZONE hỗ trợ đổi trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng với các điều kiện sau:
+                <ul style="margin-top: 10px;">
+                    <li>Sản phẩm chưa qua sử dụng, còn nguyên seal, tem</li>
+                    <li>Còn đầy đủ hộp, phụ kiện và hóa đơn mua hàng</li>
+                    <li>Không áp dụng với sản phẩm khuyến mãi đặc biệt</li>
+                </ul>
+                Chi tiết xem tại <a href="chinhsach.html" style="color: var(--primary-color); font-weight: 600;">chính sách đổi trả</a>.
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>TECHZONE</h3>
+            <ul class="footer-links">
+                <li>Địa chỉ: 123 Đường Văn Linh, Phường Tân Thuận Tây, Quận 7, TP. HCM</li>
+                <li>Hotline: 1800 588 886</li>
+                <li>Email: techzone8888@gmail.com</li>
+                <li>Cung cấp laptop chính hãng, bảo hành chính hãng toàn quốc.</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>CHÍNH SÁCH BÁN HÀNG</h3>
+            <ul class="footer-links">
+                <li><a href="chinhsach.html">Chính sách bảo hành</a></li>
+                <li><a href="chinhsach.html">Chính sách đổi trả</a></li>
+                <li><a href="chinhsach.html">Chính sách thanh toán</a></li>
+                <li><a href="chinhsach.html">Chính sách giao hàng</a></li>
+                <li><a href="chinhsach.html">Chính sách bảo mật</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+            <ul class="footer-links">
+                <li><a href="hotro.html">Trung tâm hỗ trợ</a></li>
+                <li><a href="hotro.html#faq">Câu hỏi thường gặp</a></li>
+                <li><a href="hotro.html#contact">Liên hệ với chúng tôi</a></li>
+                <li><a href="hotro.html#tracking">Theo dõi đơn hàng</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <ul class="footer-links">
+                <li><a href="https://www.facebook.com/share/1B23wt5nzV/"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                <li><a href="https://www.tiktok.com/@l.th.qunh5?_t=ZS-8yPXRRnOhXs&_r=1"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                <li><a href="https://www.instagram.com/quynhlee2504?igsh=MTQyNWh0NHhuams1OQ=="><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://www.youtube.com"><i class="fab fa-youtube"></i> YouTube</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2025 TechZone. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

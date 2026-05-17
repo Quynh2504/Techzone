@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - TechZone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-map {
+            height: 400px;
+            background: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-info-card {
+            transition: all 0.3s ease;
+        }
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .form-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column-reverse;
+            }
+        }
+        .social-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            color: #4b5563;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">TECHZONE</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="trangchu.html" class="hover:text-blue-200">TRANG CHỦ</a></li>
+                    <li><a href="sanpham.html" class="hover:text-blue-200">SẢN PHẨM</a></li>
+                    <li><a href="tintuc.html" class="font-semibold underline">TIN TỨC</a></li>
+                    <li><a href="lienhe.html" class="hover:text-blue-200">LIÊN HỆ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="mb-12 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Liên hệ với chúng tôi</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Chúng tôi luôn sẵn sàng hỗ trợ và giải đáp mọi thắc mắc của bạn về sản phẩm laptop. Hãy gửi tin nhắn hoặc liên hệ trực tiếp qua các kênh dưới đây.</p>
+        </div>
+
+        <div class="contact-container flex flex-wrap gap-8">
+            <!-- Contact Form -->
+            <div class="flex-1 min-w-[300px]">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Gửi tin nhắn cho chúng tôi</h3>
+                    <form id="contactForm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">Họ và tên</label>
+                            <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border rounded-lg focus:border-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="form-input w-full px-4 py-2 border rounded-lg focus:border-blue-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2">Số điện thoại</label>
+                            <input type="tel" id="phone" name="phone" class="form-input w-full px-4 py-2 border rounded-lg focus:border-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 mb-2">Chủ đề</label>
+                            <select id="subject" name="subject" class="form-input w-full px-4 py-2 border rounded-lg focus:border-blue-500">
+                                <option value="product">Hỏi về sản phẩm</option>
+                                <option value="warranty">Bảo hành</option>
+                                <option value="payment">Thanh toán</option>
+                                <option value="other">Khác</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">Nội dung</label>
+                            <textarea id="message" name="message" rows="5" class="form-input w-full px-4 py-2 border rounded-lg focus:border-blue-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Gửi tin nhắn</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="flex-1 min-w-[300px]">
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Thông tin liên hệ</h3>
+                    <div class="space-y-6">
+                        <div class="contact-info-card bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Địa chỉ cửa hàng</h4>
+                                    <p class="text-gray-600">123 Đường Nguyễn Văn Linh, Phường Tân Thuận Tây, Quận 7, Thành phố Hồ Chí Minh</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-info-card bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Điện thoại</h4>
+                                    <p class="text-gray-600">Hotline: 1800 588 886</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-info-card bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">techzone8888@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-info-card bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Giờ làm việc</h4>
+                                    <p class="text-gray-600">Thứ 2 - Thứ 6: 8:00 - 22:00</p>
+                                    <p class="text-gray-600">Thứ 7: 8:00 - 23:00</p>
+                                    <p class="text-gray-600">Chủ nhật: 8:00 - 21:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social Media -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Kết nối với chúng tôi</h3>
+                    <div class="social-links">
+                        <li><a href="https://www.facebook.com/share/1B23wt5nzV/"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="https://www.tiktok.com/@l.th.qunh5?_t=ZS-8yPXRRnOhXs&_r=1"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                        <li><a href="https://www.instagram.com/quynhlee2504?igsh=MTQyNWh0NHhuams1OQ=="><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Map -->
+        <div class="mt-12">
+            <div class="contact-map rounded-lg shadow-md overflow-hidden">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.105888030042!2d106.7212763152879!3d10.732933392346976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f9c6c8b3e5d%3A0x5a5a5a5a5a5a5a5a!2s123%20Nguy%E1%BB%85n%20V%C4%83n%20Linh%2C%20T%C3%A2n%20Thu%E1%BA%ADn%20T%C3%A2y%2C%20Qu%E1%BA%ADn%207%2C%20Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Bản đồ chỉ đường đến cửa hàng TechZone">
+                </iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-4">TechZone</h3>
+                    <p class="text-gray-400">Địa chỉ: 123 Đường Nguyễn Văn Linh, Phường Tân Thuận Tây, Quận 7, Thành phố Hồ Chí Minh</p>
+                    <p class="text-gray-400 mt-2">Điện thoại: 1800 588 886</p>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3>CHÍNH SÁCH BÁN HÀNG</h3>
+            <ul class="footer-links">
+                <li><a href="http://127.0.0.1:5500/chinhsach.html">Chính sách bảo hành</a></li>
+                <li><a href="http://127.0.0.1:5500/chinhsach.html">Chính sách đổi trả</a></li>
+                <li><a href="http://127.0.0.1:5500/chinhsach.html">Chính sách thanh toán</a></li>
+                <li><a href="http://127.0.0.1:5500/chinhsach.html">Chính sách giao hàng</a></li>
+                <li><a href="http://127.0.0.1:5500/chinhsach.html">Chính sách bảo mật</a></li>
+            </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+            <ul class="footer-links">
+                <li><a href="http://127.0.0.1:5500/hotro.html">Trung tâm hỗ trợ</a></li>
+                <li><a href="http://127.0.0.1:5500/hotro.html">Câu hỏi thường gặp</a></li>
+                <li><a href="http://127.0.0.1:5500/hotro.html">Liên hệ với chúng tôi</a></li>
+                <li><a href="http://127.0.0.1:5500/hotro.html">Theo dõi đơn hàng</a></li>
+            </ul>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <h3 class="text-lg font-semibold mb-4">Đăng ký nhận tin</h3>
+                    <form class="flex">
+                        <input type="email" placeholder="Email của bạn" class="px-4 py-2 rounded-l-lg text-gray-800 w-full">
+                        <button type="submit" class="bg-blue-600 px-4 py-2 rounded-r-lg hover:bg-blue-700">Gửi</button>
+                    </form>
+                    <p class="text-gray-400 mt-2 text-sm">Nhận thông tin khuyến mãi mới nhất</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>© 2025 TechZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            // For demo, we'll just show an alert
+            alert(`Cảm ơn bạn ${name} đã liên hệ với chúng tôi!\nChúng tôi sẽ phản hồi sớm qua email ${email} hoặc số điện thoại ${phone}.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

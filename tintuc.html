@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tin tức - TechZone</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #006400;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .news-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .news-card:hover {
+      transform: scale(1.02);
+    }
+
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .news-card-content {
+      padding: 1rem;
+    }
+
+    .news-card h3 {
+      color: #006400;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .news-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #006400;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>TechZone - Tin tức công nghệ</h2>
+    <nav>
+      <a href="trangchu.html">Trang chủ</a>
+      <a href="sanpham.html">Sản phẩm</a>
+      <a href="tintuc.html">Tin tức</a>
+      <a href="lienhe.html">Liên hệ</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Tin tức mới nhất</h1>
+
+    <div class="news-grid">
+      <!-- Bài viết 1 -->
+      <div class="news-card">
+        <img src="ss1.jpg" alt="Macbook M4">
+        <div class="news-card-content">
+          <h3>Apple ra mắt MacBook Air M4: Mạnh mẽ hơn, mỏng hơn</h3>
+          <p>MacBook Air M4 chính thức trình làng với chip mới và thời lượng pin lên tới 18 giờ...</p>
+          <a class="read-more" href="https://www.apple.com/newsroom/2025/03/apple-introduces-the-new-macbook-air-with-the-m4-chip-and-a-sky-blue-color/">Đọc thêm</a>
+        </div>
+      </div>
+
+      <!-- Bài viết 2 -->
+      <div class="news-card">
+        <img src="ss2.jpg" alt="Gaming laptop">
+        <div class="news-card-content">
+          <h3>Top 7 laptop gaming đáng mua nhất 2025</h3>
+          <p>Dòng laptop gaming năm nay có nhiều cải tiến về GPU và tản nhiệt, đáng chú ý là ASUS ROG...</p>
+          <a class="read-more" href="https://fptshop.com.vn/tin-tuc/for-gamers/laptop-gaming-tot-nhat-dau-nam-2025-164221">Đọc thêm</a>
+        </div>
+      </div>
+
+      <!-- Bài viết 3 -->
+      <div class="news-card">
+        <img src="ss3.jpg" alt="So sánh">
+        <div class="news-card-content">
+          <h3>So Sánh Laptop Dell Inspiron 15 3520 71001747 và Apple MacBook Air M2 2024 8CPU 8GPU 8GB 256GB I Chính hãng Apple Việt Nam</h3>
+          <p>Bài viết phân tích chi tiết hai mẫu laptop cao cấp đang cạnh tranh khốc liệt trên thị trường...</p>
+          <a class="read-more" href="https://cellphones.com.vn/so-sanh/laptop-dell-inspiron-15-3520-71001747-vs-macbook-air-m2-2022">Đọc thêm</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 TechZone. Bản quyền được bảo hộ.</p>
+  </footer>
+</body>
+</html>

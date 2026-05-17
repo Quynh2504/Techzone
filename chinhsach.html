@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chính Sách | TECHZONE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary-color: #4e2ac2;
+            --secondary-color: #ffb300;
+            --dark-color: #222;
+            --light-color: #f9f9f9;
+            --text-color: #333;
+            --text-light: #aaa;
+            --white: #fff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .policy-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .policy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .policy-icon {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        ul li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+        
+        .contact-info {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .contact-info h2 {
+            color: var(--white);
+            justify-content: center;
+        }
+        
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            padding-left: 0;
+        }
+        
+        .contact-info li::before {
+            display: none;
+        }
+        
+        .contact-info strong {
+            color: var(--secondary-color);
+        }
+        
+        /* Header styles (giữ nguyên) */
+        header {
+            background: var(--primary-color);
+            color: white;
+        }
+        .pink-section {
+            padding: 10px 0;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 180px;
+        }
+        .logo i {
+            font-size: 28px;
+            color: var(--secondary-color);
+        }
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .logo h1::after {
+            display: none;
+        }
+        .header-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            justify-content: center;
+            min-width: 350px;
+        }
+        .header-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .header-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer styles (giữ nguyên) */
+        footer {
+            background: var(--dark-color);
+            color: var(--text-light);
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            
+            .header-links {
+                flex-wrap: wrap;
+                gap: 15px;
+                min-width: auto;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="pink-section">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-laptop"></i>
+                <h1>TECHZONE</h1>
+            </div>
+            <nav class="header-links">
+                <a href="trangchu.html">TRANG CHỦ</a>
+                <a href="sanpham.html">SẢN PHẨM</a>
+                <a href="tintuc.html">TIN TỨC</a>
+                <a href="lienhe.html">LIÊN HỆ</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <h1>Chính Sách Bán Hàng</h1>
+    
+    <div class="policy-grid">
+        <div class="policy-card">
+            <div class="policy-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h2>Chính Sách Bảo Hành</h2>
+            <ul>
+                <li>Sản phẩm bảo hành 12–24 tháng theo quy định hãng.</li>
+                <li>Hỗ trợ tại trung tâm chính hãng hoặc thông qua TECHZONE.</li>
+                <li>Không bảo hành sản phẩm bị rơi, vào nước, hư hỏng do người dùng.</li>
+                <li>Bảo hành 1 đổi 1 trong 30 ngày đầu tiên nếu lỗi từ nhà sản xuất.</li>
+            </ul>
+        </div>
+        
+        <div class="policy-card">
+            <div class="policy-icon">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+            <h2>Chính Sách Đổi Trả</h2>
+            <ul>
+                <li>Đổi trả trong 7 ngày nếu sản phẩm chưa qua sử dụng.</li>
+                <li>Sản phẩm cần còn hộp, phụ kiện và hóa đơn đầy đủ.</li>
+                <li>Không hỗ trợ nếu vi phạm điều kiện đổi trả.</li>
+                <li>Hoàn tiền 100% nếu sản phẩm không đúng như mô tả.</li>
+            </ul>
+        </div>
+        
+        <div class="policy-card">
+            <div class="policy-icon">
+                <i class="fas fa-credit-card"></i>
+            </div>
+            <h2>Chính Sách Thanh Toán</h2>
+            <ul>
+                <li>Hỗ trợ COD, chuyển khoản ngân hàng, ví điện tử.</li>
+                <li>Trả góp 0% qua thẻ tín dụng (nếu áp dụng).</li>
+                <li>Thanh toán an toàn qua cổng VNPAY, MOMO.</li>
+                <li>Hỗ trợ đa dạng các loại thẻ quốc tế và nội địa.</li>
+            </ul>
+        </div>
+        
+        <div class="policy-card">
+            <div class="policy-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <h2>Chính Sách Giao Hàng</h2>
+            <ul>
+                <li>Miễn phí giao hàng cho đơn hàng từ 5 triệu đồng.</li>
+                <li>Nội thành HCM: 1–2 ngày. Các tỉnh: 2–5 ngày.</li>
+                <li>Cho phép kiểm tra hàng trước khi thanh toán.</li>
+                <li>Đóng gói chuyên nghiệp, đảm bảo an toàn sản phẩm.</li>
+            </ul>
+        </div>
+        
+        <div class="policy-card">
+            <div class="policy-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2>Chính Sách Bảo Mật</h2>
+            <ul>
+                <li>Bảo vệ thông tin cá nhân khách hàng tuyệt đối.</li>
+                <li>Dữ liệu không chia sẻ cho bên thứ ba nếu không có sự cho phép.</li>
+                <li>Website sử dụng mã hóa SSL an toàn.</li>
+                <li>Tuân thủ nghiêm ngặt luật bảo vệ dữ liệu cá nhân.</li>
+            </ul>
+        </div>
+        
+        <div class="policy-card">
+            <div class="policy-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h2>Chính Sách Khuyến Mãi</h2>
+            <ul>
+                <li>Giảm giá đến 30% cho các sản phẩm mới ra mắt.</li>
+                <li>Tặng phụ kiện trị giá 500.000đ khi mua laptop cao cấp.</li>
+                <li>Bảo hành màn hình miễn phí 3 năm cho dòng sản phẩm cao cấp.</li>
+                <li>Ưu đãi đặc biệt cho khách hàng thân thiết.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="contact-info">
+        <h2><i class="fas fa-headset"></i> Liên Hệ Hỗ Trợ</h2>
+        <ul>
+            <li><strong>Hotline:</strong> 1800 588 886 (Miễn phí 24/7)</li>
+            <li><strong>Email:</strong> techzone8888@gmail.com</li>
+            <li><strong>Địa chỉ:</strong> 123 Đường Văn Linh, Quận 7, TP. HCM</li>
+            <li><strong>Giờ làm việc:</strong> 8:00 - 21:00 hàng ngày</li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>TECHZONE</h3>
+            <ul class="footer-links">
+                <li>Địa chỉ: 123 Đường Văn Linh, Phường Tân Thuận Tây, Quận 7, TP. HCM</li>
+                <li>Hotline: 1800 588 886</li>
+                <li>Email: techzone8888@gmail.com</li>
+                <li>Cung cấp laptop chính hãng, bảo hành chính hãng toàn quốc.</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>CHÍNH SÁCH BÁN HÀNG</h3>
+            <ul class="footer-links">
+                <li><a href="chinhsach.html#policy-warranty">Chính sách bảo hành</a></li>
+                <li><a href="chinhsach.html#policy-exchange">Chính sách đổi trả</a></li>
+                <li><a href="chinhsach.html#policy-payment">Chính sách thanh toán</a></li>
+                <li><a href="chinhsach.html#policy-shipping">Chính sách giao hàng</a></li>
+                <li><a href="chinhsach.html#policy-privacy">Chính sách bảo mật</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+            <ul class="footer-links">
+                <li><a href="hotro.html">Trung tâm hỗ trợ</a></li>
+                <li><a href="hotro.html">Câu hỏi thường gặp</a></li>
+                <li><a href="hotro.html">Liên hệ với chúng tôi</a></li>
+                <li><a href="hotro.html">Theo dõi đơn hàng</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <ul class="footer-links">
+                <li><a href="https://www.facebook.com/share/1B23wt5nzV/"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                <li><a href="https://www.tiktok.com/@l.th.qunh5?_t=ZS-8yPXRRnOhXs&_r=1"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                <li><a href="https://www.instagram.com/quynhlee2504?igsh=MTQyNWh0NHhuams1OQ=="><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://www.youtube.com"><i class="fab fa-youtube"></i> YouTube</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2025 TechZone. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

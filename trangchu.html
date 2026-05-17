@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Laptop chính hãng giá tốt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #e74c3c;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #e74c3c;
+        }
+        
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .header-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .header-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .icon-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        /* Slideshow */
+        .slideshow-container {
+            max-width: 1200px;
+            position: relative;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: auto;
+        }
+        
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+        
+        /* Flash sale */
+        .flash-sale {
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .flash-sale h2 {
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            background-color: rgba(0,0,0,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        .view-all {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 20px;
+            border: 1px solid white;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .view-all:hover {
+            background-color: white;
+            color: #e74c3c;
+        }
+        
+        /* Products */
+        .products {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e74c3c;
+        }
+        
+        .section-title h2 {
+            font-size: 24px;
+            color: #2c3e50;
+        }
+        
+        .section-title a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        
+        .section-title a:hover {
+            color: #c0392b;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+            padding: 10px;
+            background: #fff;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover .product-actions {
+            opacity: 1;
+        }
+        
+        .action-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: white;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .action-btn:hover {
+            background-color: #e74c3c;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 40px;
+            color: #2c3e50;
+        }
+        
+        .product-price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .product-price del {
+            color: #999;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .add-to-cart {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #e74c3c;
+            transform: translateY(-2px);
+        }
+        
+        /* Wishlist Sidebar */
+        .wishlist-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: right 0.3s;
+            overflow-y: auto;
+        }
+        
+        .wishlist-sidebar.open {
+            right: 0;
+        }
+        
+        .wishlist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .wishlist-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .close-wishlist {
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        
+        .close-wishlist:hover {
+            color: #e74c3c;
+        }
+        
+        .wishlist-items {
+            padding: 20px;
+        }
+        
+        .wishlist-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .wishlist-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin-right: 15px;
+            background: #f5f5f5;
+            padding: 5px;
+        }
+        
+        .wishlist-item-info {
+            flex: 1;
+        }
+        
+        .wishlist-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .wishlist-item-price {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .wishlist-item-remove {
+            color: #999;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+        
+        .wishlist-item-remove:hover {
+            color: #e74c3c;
+        }
+        
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: right 0.3s;
+            overflow-y: auto;
+        }
+        
+        .cart-sidebar.open {
+            right: 0;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .close-cart {
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        
+        .close-cart:hover {
+            color: #e74c3c;
+        }
+        
+        .cart-items {
+            padding: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin-right: 15px;
+            background: #f5f5f5;
+            padding: 5px;
+        }
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .cart-item-price {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-quantity-btn {
+            width: 25px;
+            height: 25px;
+            background-color: #eee;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .cart-quantity-btn:hover {
+            background-color: #ddd;
+        }
+        
+        .cart-quantity-input {
+            width: 40px;
+            height: 25px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+        }
+        
+        .cart-item-remove {
+            color: #999;
+            cursor: pointer;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+        
+        .cart-item-remove:hover {
+            color: #e74c3c;
+        }
+        
+        .cart-summary {
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .checkout-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #e74c3c;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+        }
+        
+        /* Wishlist heart icon */
+        .action-btn.wishlist-active {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .wishlist-sidebar, .cart-sidebar {
+                width: 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .header-icons {
+                margin-top: 15px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .wishlist-sidebar, .cart-sidebar {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .slide img {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .slide img {
+                height: 250px;
+            }
+            
+            .flash-sale {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">TECH<span>ZONE</span></div>
+            <nav>
+                <ul>
+                    <li><a href="trangchu.html">TRANG CHỦ</a></li>
+                    <li><a href="sanpham.html">SẢN PHẨM</a></li>
+                    <li><a href="tintuc.html">TIN TỨC</a></li>
+                    <li><a href="lienhe.html">LIÊN HỆ</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <div class="header-icon wishlist-icon">
+                    <i class="far fa-heart"></i>
+                    <span class="icon-badge wishlist-count">0</span>
+                </div>
+                <div class="header-icon cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="icon-badge cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="baner 1.jpg" alt="Laptop High Performance">
+        </div>
+        
+        <div class="slide fade">
+            <img src="baner 2.jpg" alt="Gaming Laptop Collection">
+        </div>
+        
+        <div class="slide fade">
+            <img src="baner 3.png" alt="Ultrabook Light and Thin">
+        </div>
+    </div>
+
+    <!-- Flash sale -->
+    <div class="flash-sale">
+        <h2>FLASH SALE</h2>
+        <div class="timer">00:30:00</div>
+        <a href="sanpham.html" class="view-all">Xem tất cả</a>
+    </div>
+
+    <!-- Products -->
+    <section class="products">
+        <div class="section-title">
+            <h2>SẢN PHẨM NỔI BẬT</h2>
+            <a href="sanpham.html">Xem tất cả <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card" data-id="1">
+                <div class="product-badge">Bán chạy</div>
+                <div class="product-image">
+                    <img src="ACER.jpg" alt="Laptop Acer Switch Go 14 AI">
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn add-to-wishlist" title="Yêu thích"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Acer Switch Go 14 AI</h3>
+                    <div class="product-price">26.990.000đ</div>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card" data-id="2">
+                <div class="product-badge">Mới</div>
+                <div class="product-image">
+                    <img src="MCB.jpg" alt="MacBook Air M4">
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn add-to-wishlist" title="Yêu thích"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">MacBook Air M4</h3>
+                    <div class="product-price">27.990.000đ</div>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card" data-id="3">
+                <div class="product-badge">Bán chạy</div>
+                <div class="product-image">
+                    <img src="ASUS.jpg" alt="Asus Gaming Vivobook">
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn add-to-wishlist" title="Yêu thích"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Asus Gaming Vivobook</h3>
+                    <div class="product-price">25.090.000đ</div>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card" data-id="4">
+                <div class="product-image">
+                    <img src="HP Pavillion 16.jpg" alt="HP Pavillion 16">
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn add-to-wishlist" title="Yêu thích"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">HP Pavillion 16</h3>
+                    <div class="product-price">26.790.000đ</div>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card" data-id="5">
+                <div class="product-badge">Hot</div>
+                <div class="product-image">
+                    <img src="MFC.jpg" alt="Microsoft Surface 5">
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn add-to-wishlist" title="Yêu thích"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Microsoft Surface 5</h3>
+                    <div class="product-price">25.990.000đ</div>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card" data-id="6">
+                <div class="product-badge">Bán chạy</div>
+                <div class="product-image">
+                    <img src="LENOVO.jpg" alt="Lenovo IdeaPad Slim 3">
+                </div>
+                <div class="product-actions">
+                    <button class="action-btn add-to-wishlist" title="Yêu thích"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Lenovo IdeaPad Slim 3</h3>
+                    <div class="product-price">16.190.000đ</div>
+                    <button class="add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wishlist Sidebar -->
+    <div class="wishlist-sidebar">
+        <div class="wishlist-header">
+            <div class="wishlist-title">Sản phẩm yêu thích</div>
+            <div class="close-wishlist">&times;</div>
+        </div>
+        <div class="wishlist-items">
+            <!-- Wishlist items will be added here dynamically -->
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <div class="cart-title">Giỏ hàng của bạn</div>
+            <div class="close-cart">&times;</div>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Tổng tiền:</span>
+                <span class="total-price">0đ</span>
+            </div>
+            <button class="checkout-btn">Thanh toán</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>TECHZONE</h3>
+                <ul class="footer-links">
+                    <li>Địa chỉ: 123 Đường Văn Linh, Phường Tân Thuận Tây, Quận 7, TP. HCM</li>
+                    <li>Hotline: 1800 588 886</li>
+                    <li>Email: techzone8888@gmail.com</li>
+                    <li>Cung cấp laptop chính hãng, bảo hành chính hãng toàn quốc.</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>CHÍNH SÁCH BÁN HÀNG</h3>
+                <ul class="footer-links">
+                    <li><a href="chinhsach.html#policy-warranty">Chính sách bảo hành</a></li>
+                    <li><a href="chinhsach.html#policy-exchange">Chính sách đổi trả</a></li>
+                    <li><a href="chinhsach.html#policy-payment">Chính sách thanh toán</a></li>
+                    <li><a href="chinhsach.html#policy-shipping">Chính sách giao hàng</a></li>
+                    <li><a href="chinhsach.html#policy-privacy">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+                <ul class="footer-links">
+                    <li><a href="hotro.html">Trung tâm hỗ trợ</a></li>
+                    <li><a href="hotro.html">Câu hỏi thường gặp</a></li>
+                    <li><a href="hotro.html">Liên hệ với chúng tôi</a></li>
+                    <li><a href="hotro.html">Theo dõi đơn hàng</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1B23wt5nzV/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@l.th.qunh5?_t=ZS-8yPXRRnOhXs&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/quynhlee2504?igsh=MTQyNWh0NHhuams1OQ=="><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 TechStore. All Rights Reserved.
+        </div>
+    </footer>
+    
+    <script>
+        // Product data
+        const products = [
+            {
+                id: 1,
+                title: "Acer Switch Go 14 AI",
+                price: 26990000,
+                image: "ACER.jpg",
+                specs: {
+                    cpu: "Intel Core i5-1235U",
+                    ram: "16GB LPDDR4X",
+                    storage: "512GB SSD",
+                    display: "14 inch QHD IPS Touch",
+                    graphics: "Intel Iris Xe Graphics",
+                    os: "Windows 11 Home"
+                },
+                rating: 4.5,
+                reviews: 128
+            },
+            {
+                id: 2,
+                title: "MacBook Air M4",
+                price: 27990000,
+                image: "MCB.jpg",
+                specs: {
+                    cpu: "Apple M4 chip",
+                    ram: "8GB Unified Memory",
+                    storage: "256GB SSD",
+                    display: "13.6 inch Liquid Retina",
+                    graphics: "Apple 8-core GPU",
+                    os: "macOS"
+                },
+                rating: 4.8,
+                reviews: 215
+            },
+            {
+                id: 3,
+                title: "Asus Gaming Vivobook",
+                price: 25090000,
+                image: "ASUS.jpg",
+                specs: {
+                    cpu: "AMD Ryzen 7 5800H",
+                    ram: "16GB DDR4",
+                    storage: "512GB SSD",
+                    display: "15.6 inch FHD 144Hz",
+                    graphics: "NVIDIA GeForce RTX 3050",
+                    os: "Windows 11 Home"
+                },
+                rating: 4.3,
+                reviews: 97
+            },
+            {
+                id: 4,
+                title: "HP Pavillion 16",
+                price: 26790000,
+                image: "HP Pavillion 16.jpg",
+                specs: {
+                    cpu: "Intel Core i7-1260P",
+                    ram: "16GB DDR4",
+                    storage: "1TB SSD",
+                    display: "16.1 inch FHD IPS",
+                    graphics: "Intel Iris Xe Graphics",
+                    os: "Windows 11 Home"
+                },
+                rating: 4.2,
+                reviews: 86
+            },
+            {
+                id: 5,
+                title: "Microsoft Surface 5",
+                price: 25990000,
+                image: "MFC.jpg",
+                specs: {
+                    cpu: "Intel Core i7-1255U",
+                    ram: "16GB LPDDR4X",
+                    storage: "512GB SSD",
+                    display: "13.5 inch PixelSense Touch",
+                    graphics: "Intel Iris Xe Graphics",
+                    os: "Windows 11 Pro"
+                },
+                rating: 4.6,
+                reviews: 142
+            },
+            {
+                id: 6,
+                title: "Lenovo IdeaPad Slim 3",
+                price: 16190000,
+                image: "LENOVO.jpg",
+                specs: {
+                    cpu: "AMD Ryzen 5 5500U",
+                    ram: "8GB DDR4",
+                    storage: "256GB SSD",
+                    display: "15.6 inch FHD IPS",
+                    graphics: "AMD Radeon Graphics",
+                    os: "Windows 11 Home"
+                },
+                rating: 4.0,
+                reviews: 64
+            }
+        ];
+
+        // Slideshow
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+        
+        // Flash sale timer
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+        
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+        
+                display.textContent = minutes + ":" + seconds;
+        
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+        
+        window.onload = function () {
+            let thirtyMinutes = 60 * 30,
+                display = document.querySelector('.timer');
+            startTimer(thirtyMinutes, display);
+        };
+        
+        // Cart and Wishlist functionality
+        let cart = [];
+        let wishlist = [];
+        const cartCountElement = document.querySelector('.cart-count');
+        const wishlistCountElement = document.querySelector('.wishlist-count');
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const wishlistItemsContainer = document.querySelector('.wishlist-items');
+        const totalPriceElement = document.querySelector('.total-price');
+        const overlay = document.querySelector('.overlay');
+        const wishlistSidebar = document.querySelector('.wishlist-sidebar');
+        const cartSidebar = document.querySelector('.cart-sidebar');
+
+        // Format price
+        function formatPrice(price) {
+            return new Intl.NumberFormat('vi-VN', { style: 'decimal' }).format(price) + 'đ';
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = count;
+        }
+
+        // Update wishlist count
+        function updateWishlistCount() {
+            wishlistCountElement.textContent = wishlist.length;
+        }
+
+        // Render cart items
+        function renderCartItems() {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Giỏ hàng của bạn đang trống</p>';
+                totalPriceElement.textContent = '0đ';
+                return;
+            }
+
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                total += product.price * item.quantity;
+
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}" class="cart-item-img">
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${product.title}</div>
+                        <div class="cart-item-price">${formatPrice(product.price)}</div>
+                        <div class="cart-item-quantity">
+                            <button class="cart-quantity-btn minus" data-id="${product.id}">-</button>
+                            <input type="number" value="${item.quantity}" min="1" class="cart-quantity-input" data-id="${product.id}">
+                            <button class="cart-quantity-btn plus" data-id="${product.id}">+</button>
+                            <span class="cart-item-remove" data-id="${product.id}"><i class="fas fa-trash"></i></span>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+
+            totalPriceElement.textContent = formatPrice(total);
+        }
+
+        // Render wishlist items
+        function renderWishlistItems() {
+            if (wishlist.length === 0) {
+                wishlistItemsContainer.innerHTML = '<p>Danh sách yêu thích của bạn đang trống</p>';
+                return;
+            }
+
+            wishlistItemsContainer.innerHTML = '';
+
+            wishlist.forEach(id => {
+                const product = products.find(p => p.id === id);
+                
+                const wishlistItemElement = document.createElement('div');
+                wishlistItemElement.className = 'wishlist-item';
+                wishlistItemElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}" class="wishlist-item-img">
+                    <div class="wishlist-item-info">
+                        <div class="wishlist-item-title">${product.title}</div>
+                        <div class="wishlist-item-price">${formatPrice(product.price)}</div>
+                        <div class="wishlist-item-remove" data-id="${product.id}"><i class="fas fa-times"></i> Xóa</div>
+                    </div>
+                `;
+                wishlistItemsContainer.appendChild(wishlistItemElement);
+            });
+        }
+
+        // Add to cart
+        function addToCart(id, quantity = 1) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({ id, quantity });
+            }
+            
+            updateCartCount();
+            renderCartItems();
+            
+            // Show notification
+            const product = products.find(p => p.id === id);
+            alert(`Đã thêm ${product.title} vào giỏ hàng`);
+        }
+
+        // Remove from cart
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartCount();
+            renderCartItems();
+        }
+
+        // Update cart item quantity
+        function updateCartItemQuantity(id, quantity) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity = quantity;
+                renderCartItems();
+            }
+        }
+
+        // Add to wishlist
+        function addToWishlist(id) {
+            if (!wishlist.includes(id)) {
+                wishlist.push(id);
+                updateWishlistCount();
+                renderWishlistItems();
+                
+                // Update heart icon
+                document.querySelectorAll(`.add-to-wishlist[data-id="${id}"]`).forEach(btn => {
+                    btn.innerHTML = '<i class="fas fa-heart"></i>';
+                    btn.classList.add('wishlist-active');
+                    btn.title = 'Đã yêu thích';
+                });
+                
+                // Show notification
+                const product = products.find(p => p.id === id);
+                alert(`Đã thêm ${product.title} vào danh sách yêu thích`);
+            } else {
+                alert('Sản phẩm đã có trong danh sách yêu thích');
+            }
+        }
+
+        // Remove from wishlist
+        function removeFromWishlist(id) {
+            wishlist = wishlist.filter(itemId => itemId !== id);
+            updateWishlistCount();
+            renderWishlistItems();
+            
+            // Update heart icons
+            document.querySelectorAll(`.add-to-wishlist[data-id="${id}"]`).forEach(btn => {
+                btn.innerHTML = '<i class="far fa-heart"></i>';
+                btn.classList.remove('wishlist-active');
+                btn.title = 'Yêu thích';
+            });
+        }
+
+        // Event listeners
+        document.addEventListener('click', function(e) {
+            // Add to cart buttons
+            if (e.target.classList.contains('add-to-cart') || e.target.closest('.add-to-cart')) {
+                const button = e.target.classList.contains('add-to-cart') ? e.target : e.target.closest('.add-to-cart');
+                const productId = parseInt(button.closest('.product-card').dataset.id);
+                addToCart(productId);
+            }
+            
+            // Add to wishlist buttons
+            if (e.target.classList.contains('add-to-wishlist') || e.target.closest('.add-to-wishlist')) {
+                const button = e.target.classList.contains('add-to-wishlist') ? e.target : e.target.closest('.add-to-wishlist');
+                const productId = parseInt(button.closest('.product-card').dataset.id);
+                
+                // Check if product is already in wishlist
+                const isInWishlist = wishlist.includes(productId);
+                
+                if (isInWishlist) {
+                    removeFromWishlist(productId);
+                } else {
+                    addToWishlist(productId);
+                }
+            }
+            
+            // Cart quantity buttons
+            if (e.target.classList.contains('cart-quantity-btn')) {
+                const id = parseInt(e.target.dataset.id);
+                const input = e.target.parentElement.querySelector('.cart-quantity-input');
+                let quantity = parseInt(input.value);
+                
+                if (e.target.classList.contains('minus')) {
+                    if (quantity > 1) {
+                        input.value = quantity - 1;
+                        updateCartItemQuantity(id, quantity - 1);
+                    }
+                } else if (e.target.classList.contains('plus')) {
+                    input.value = quantity + 1;
+                    updateCartItemQuantity(id, quantity + 1);
+                }
+            }
+            
+            // Remove item from cart
+            if (e.target.classList.contains('cart-item-remove') || e.target.closest('.cart-item-remove')) {
+                const element = e.target.classList.contains('cart-item-remove') ? e.target : e.target.closest('.cart-item-remove');
+                const id = parseInt(element.dataset.id);
+                removeFromCart(id);
+            }
+            
+            // Remove item from wishlist
+            if (e.target.classList.contains('wishlist-item-remove') || e.target.closest('.wishlist-item-remove')) {
+                const element = e.target.classList.contains('wishlist-item-remove') ? e.target : e.target.closest('.wishlist-item-remove');
+                const id = parseInt(element.dataset.id);
+                removeFromWishlist(id);
+            }
+        });
+
+        // Cart quantity input changes
+        document.addEventListener('change', function(e) {
+            if (e.target.classList.contains('cart-quantity-input')) {
+                const id = parseInt(e.target.dataset.id);
+                const quantity = parseInt(e.target.value);
+                
+                if (quantity > 0) {
+                    updateCartItemQuantity(id, quantity);
+                } else {
+                    e.target.value = 1;
+                    updateCartItemQuantity(id, 1);
+                }
+            }
+        });
+
+        // Wishlist icon click
+        document.querySelector('.wishlist-icon').addEventListener('click', openWishlistSidebar);
+
+        // Cart icon click
+        document.querySelector('.cart-icon').addEventListener('click', openCartSidebar);
+
+        // Close wishlist sidebar
+        document.querySelector('.close-wishlist').addEventListener('click', closeWishlistSidebar);
+
+        // Close cart sidebar
+        document.querySelector('.close-cart').addEventListener('click', closeCartSidebar);
+
+        // Overlay click
+        overlay.addEventListener('click', function() {
+            closeWishlistSidebar();
+            closeCartSidebar();
+        });
+
+        // Open wishlist sidebar
+        function openWishlistSidebar() {
+            wishlistSidebar.classList.add('open');
+            overlay.classList.add('active');
+        }
+
+        // Close wishlist sidebar
+        function closeWishlistSidebar() {
+            wishlistSidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+
+        // Open cart sidebar
+        function openCartSidebar() {
+            cartSidebar.classList.add('open');
+            overlay.classList.add('active');
+        }
+
+        // Close cart sidebar
+        function closeCartSidebar() {
+            cartSidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+
+        // Initialize
+        updateCartCount();
+        updateWishlistCount();
+        renderCartItems();
+        renderWishlistItems();
+        
+        // Set data-id for wishlist buttons
+        document.querySelectorAll('.add-to-wishlist').forEach(btn => {
+            const productId = parseInt(btn.closest('.product-card').dataset.id);
+            btn.setAttribute('data-id', productId);
+        });
+    </script>
+</body>
+</html>
